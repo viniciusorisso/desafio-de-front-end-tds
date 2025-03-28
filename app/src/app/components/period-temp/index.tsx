@@ -1,5 +1,4 @@
 import styles from './period-temp.module.css'
-import Image from "next/image"
 import IconRenderComponent from '../icon-render';
 
 type ComponentProps = {

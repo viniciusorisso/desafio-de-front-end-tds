@@ -27,7 +27,15 @@ export const formatPeriodGroup = (rawData: WeatherDayInfo): PeriodTemp[] => {
         arr.push({ degree: hour.temp_c, timeDay: hour.condition.text, code: hour.condition.code })
         break;
       case "21:00":
-        arr.push({ degree: hour.temp_c, timeDay: hour.condition.text, code: hour.condition.code })
+        let code = hour.condition.code
+        if (hour.condition.text.includes("Clear")) {
+          code = "400"
+        }
+        if (hour.condition.text.includes("Partly cloudy")) {
+          code = "401"
+        }
+        
+        arr.push({ degree: hour.temp_c, timeDay: hour.condition.text, code })
         break;
       default:
         break;

@@ -21,6 +21,8 @@ import svg386 from "@/app/assets/icons/386.svg"
 import svg389 from "@/app/assets/icons/389.svg"
 import svg392 from "@/app/assets/icons/392.svg"
 import svg395 from "@/app/assets/icons/395.svg"
+import svg400 from "@/app/assets/icons/400.svg"
+import svg401 from "@/app/assets/icons/401.svg"
 import svg500 from "@/app/assets/icons/la_globe-americas.svg"
 import { StaticImport } from "next/dist/shared/lib/get-img-props"
 import Image from "next/image"
@@ -56,6 +58,8 @@ const SVGS: Record<string, StaticImport> = {
   "389": svg389,
   "392": svg392,
   "395": svg395,
+  "400": svg400,
+  "401": svg401,
   "500": svg500
 }
 

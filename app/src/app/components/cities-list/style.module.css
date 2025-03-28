@@ -1,0 +1,30 @@
+.box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 32px;
+  column-gap: 24px;
+  row-gap: 32px;
+}
+
+.city {
+  font-size: 20px;
+  font-weight: 400;
+  flex-basis: 25%;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.city:hover {
+  font-size-adjust: 0.5;
+  transition: all ease-in-out 0.6s;
+}
+
+@media (min-width: 750px) {
+  .box {
+    padding: 0 36%;
+  }
+}

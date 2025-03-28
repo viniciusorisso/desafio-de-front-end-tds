@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 32px 0 0;
+  row-gap: 24px;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.description {
+  font-size: 25px;
+  font-weight: 200;
+}
+
+.title {
+  font-size: 48px;
+  font-weight: 300;
+}
+
+.icon {
+  height: 176px;
+  width: 176px;
+}
+
+@media (min-width: 750px) {
+  .header {
+    row-gap: 32px;
+  }
+
+  .icon {
+    height: 176px;
+    width: 176px;
+  }
+}

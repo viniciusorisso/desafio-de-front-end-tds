@@ -288,3 +288,8 @@ export const equivalence = [
 		"icon" : 395
 	}
 ]
+
+export const isGray = [
+	"113",
+	"116",
+]

@@ -1,7 +1,6 @@
-import Image from 'next/image';
 import styles from './style.module.css'
-import ArrowUp from "@/app/assets/icons/stash_arrow-up-light.svg"
-import ArrowDown from "@/app/assets/icons/stash_arrow-down-light.svg"
+import ArrowUp from "@/app/assets/icons/stash_arrow-up-light.tsx"
+import ArrowDown from "@/app/assets/icons/stash_arrow-down-light.tsx"
 
 type ComponentProps = {
   degree: string;
@@ -23,18 +22,21 @@ const MainTempComponent = ({ degree, format, lastDegree, nextDegree }: Component
           </span>
           <div className={styles.changes}>
             <span className={styles.degree}>
-              <Image className={styles.icon} src={ArrowUp} alt="arrow up icon" /> 
+              <div className={styles.icon}>
+                <ArrowUp /> 
+              </div>
               <p>{lastDegree} º</p>
             </span>
             <span className={styles.degree}>
-              <Image className={styles.icon} src={ArrowDown} alt="arrow down icon" />
+              <div className={styles.icon}>
+                <ArrowDown/>
+              </div>
               <p>{nextDegree} º</p>
             </span>
           </div>
         </div>
       </div>
     </>
-  )
-}
+  )}
 
 export default MainTempComponent;

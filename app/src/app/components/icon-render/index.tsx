@@ -1,78 +1,58 @@
-import svg113 from "@/app/assets/icons/113.svg"
-import svg116 from "@/app/assets/icons/116.svg"
-import svg119 from "@/app/assets/icons/119.svg"
-import svg122 from "@/app/assets/icons/122.svg"
-import svg143 from "@/app/assets/icons/143.svg"
-import svg200 from "@/app/assets/icons/200.svg"
-import svg230 from "@/app/assets/icons/230.svg"
-import svg248 from "@/app/assets/icons/248.svg"
-import svg296 from "@/app/assets/icons/296.svg"
-import svg308 from "@/app/assets/icons/308.svg"
-import svg338 from "@/app/assets/icons/338.svg"
-import svg353 from "@/app/assets/icons/353.svg"
-import svg356 from "@/app/assets/icons/356.svg"
-import svg359 from "@/app/assets/icons/359.svg"
-import svg365 from "@/app/assets/icons/365.svg"
-import svg368 from "@/app/assets/icons/368.svg"
-import svg371 from "@/app/assets/icons/371.svg"
-import svg374 from "@/app/assets/icons/374.svg"
-import svg377 from "@/app/assets/icons/377.svg"
-import svg386 from "@/app/assets/icons/386.svg"
-import svg389 from "@/app/assets/icons/389.svg"
-import svg392 from "@/app/assets/icons/392.svg"
-import svg395 from "@/app/assets/icons/395.svg"
-import svg400 from "@/app/assets/icons/400.svg"
-import svg401 from "@/app/assets/icons/401.svg"
-import svg500 from "@/app/assets/icons/la_globe-americas.svg"
-import { StaticImport } from "next/dist/shared/lib/get-img-props"
-import Image from "next/image"
 import { equivalence } from "./equivalence"
 import styles from "./style.module.css"
+import dynamic from "next/dynamic"
 
 type ComponentProps = {
   code: string;
   description: string;
 }
 
-const SVGS: Record<string, StaticImport> = {
-  "113": svg113,
-  "116": svg116,
-  "119": svg119,
-  "122": svg122,
-  "143": svg143,
-  "200": svg200,
-  "230": svg230,
-  "248": svg248,
-  "296": svg296,
-  "308": svg308,
-  "338": svg338,
-  "353": svg353,
-  "356": svg356,
-  "359": svg359,
-  "365": svg365,
-  "368": svg368,
-  "371": svg371,
-  "374": svg374,
-  "377": svg377,
-  "386": svg386,
-  "389": svg389,
-  "392": svg392,
-  "395": svg395,
-  "400": svg400,
-  "401": svg401,
-  "500": svg500
+const SVGS = {
+  "113": dynamic(() => import("@/app/assets/icons/113.tsx")),
+  "116": dynamic(() => import("@/app/assets/icons/116.tsx")),
+  "119": dynamic(() => import("@/app/assets/icons/119.tsx")),
+  "122": dynamic(() => import("@/app/assets/icons/122.tsx")),
+  "143": dynamic(() => import("@/app/assets/icons/143.tsx")),
+  "200": dynamic(() => import("@/app/assets/icons/200.tsx")),
+  "230": dynamic(() => import("@/app/assets/icons/230.tsx")),
+  "248": dynamic(() => import("@/app/assets/icons/248.tsx")),
+  "296": dynamic(() => import("@/app/assets/icons/296.tsx")),
+  "308": dynamic(() => import("@/app/assets/icons/308.tsx")),
+  "338": dynamic(() => import("@/app/assets/icons/338.tsx")),
+  "353": dynamic(() => import("@/app/assets/icons/353.tsx")),
+  "356": dynamic(() => import("@/app/assets/icons/356.tsx")),
+  "359": dynamic(() => import("@/app/assets/icons/359.tsx")),
+  "365": dynamic(() => import("@/app/assets/icons/365.tsx")),
+  "368": dynamic(() => import("@/app/assets/icons/368.tsx")),
+  "371": dynamic(() => import("@/app/assets/icons/371.tsx")),
+  "377": dynamic(() => import("@/app/assets/icons/377.tsx")),
+  "386": dynamic(() => import("@/app/assets/icons/386.tsx")),
+  "374": dynamic(() => import("@/app/assets/icons/374.tsx")),
+  "389": dynamic(() => import("@/app/assets/icons/389.tsx")),
+  "392": dynamic(() => import("@/app/assets/icons/392.tsx")),
+  "395": dynamic(() => import("@/app/assets/icons/395.tsx")),
+  "400": dynamic(() => import("@/app/assets/icons/400.tsx")),
+  "401": dynamic(() => import("@/app/assets/icons/401.tsx")),
+  "500": dynamic(() => import("@/app/assets/icons/500.tsx")),
 }
 
-const IconRenderComponent = ({ code, description }: ComponentProps) => {
+const IconRenderComponent = ({ code }: ComponentProps) => {
   const obj = equivalence.find(el => el.code === +code);
   
   if (!obj?.icon) {
-    return <Image className={styles.image} src={SVGS[500]} alt={description} />
+    const GeneralComponent = SVGS["500"]
+
+    return <div className={styles.image} >
+      <GeneralComponent />
+      </div>
   }
   
-  return <>
-    <Image className={styles.image} src={SVGS[obj!.icon]} alt={description} />
-  </>
+  // @ts-expect-error typo issues
+  const GeneralComponent = SVGS[obj.icon]
+
+  return <div className={styles.image} >
+      <GeneralComponent />
+    </div>
 }
 
 export default IconRenderComponent;

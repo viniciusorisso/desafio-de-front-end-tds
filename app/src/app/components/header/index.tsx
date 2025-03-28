@@ -1,6 +1,5 @@
 import styles from './style.module.css'
-import Globe from '@/app/assets/icons/la_globe-americas.svg'
-import Image from 'next/image';
+import IconRenderComponent from '../icon-render';
 
 type ComponentProps = {
   title: string;
@@ -8,7 +7,7 @@ type ComponentProps = {
   icon?: string;
 }
 
-export default async function HeaderComponent({ title, description, icon = Globe}: ComponentProps) {
+export default async function HeaderComponent({ title, description, icon = "500" }: ComponentProps) {
   return (
     <>
       <div className={styles.header}>
@@ -20,7 +19,9 @@ export default async function HeaderComponent({ title, description, icon = Globe
             { description }
           </p>
         </div>
-        <Image className={styles.icon} src={icon} alt={title + " icon"} />
+        <div className={styles.icon} >
+          <IconRenderComponent code={icon} description={description} />
+        </div>
       </div>
     </>
   );

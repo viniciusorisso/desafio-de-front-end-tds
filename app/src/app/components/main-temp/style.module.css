@@ -1,0 +1,34 @@
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.format {
+  font-size: 42px;
+  font-weight: 200;
+}
+
+.changes {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  & .degree {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.degree {
+  font-size: 128px;
+  font-weight: 200;
+}
+
+.icon {
+  height: 16px;
+  width: 16px;
+}

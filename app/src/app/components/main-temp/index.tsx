@@ -27,7 +27,7 @@ const MainTempComponent = ({ degree, format, lastDegree, nextDegree }: Component
               <p>{lastDegree} º</p>
             </span>
             <span className={styles.degree}>
-              <Image className={styles.icon} src={ArrowDown} alt="arrow up icon" />
+              <Image className={styles.icon} src={ArrowDown} alt="arrow down icon" />
               <p>{nextDegree} º</p>
             </span>
           </div>

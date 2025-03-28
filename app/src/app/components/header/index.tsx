@@ -7,7 +7,7 @@ type ComponentProps = {
   icon?: string;
 }
 
-export default async function HeaderComponent({ title, description, icon = "500" }: ComponentProps) {
+export default function HeaderComponent({ title, description, icon = "500" }: ComponentProps) {
   return (
     <>
       <div className={styles.header}>

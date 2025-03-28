@@ -6,7 +6,7 @@ export default async function Home() {
   return (
     <>
       <div className={[styles.box, "mainText black-theme"].join(" ")}>
-        <HeaderComponent title="Weather" description="Select a city" />
+        <HeaderComponent title="Weather" description="Select a city" icon="" />
         <CitiesList />
       </div>
     </>

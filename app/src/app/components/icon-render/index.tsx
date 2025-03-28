@@ -21,6 +21,7 @@ import svg386 from "@/app/assets/icons/386.svg"
 import svg389 from "@/app/assets/icons/389.svg"
 import svg392 from "@/app/assets/icons/392.svg"
 import svg395 from "@/app/assets/icons/395.svg"
+import svg500 from "@/app/assets/icons/la_globe-americas.svg"
 import { StaticImport } from "next/dist/shared/lib/get-img-props"
 import Image from "next/image"
 import { equivalence } from "./equivalence"
@@ -55,13 +56,14 @@ const SVGS: Record<string, StaticImport> = {
   "389": svg389,
   "392": svg392,
   "395": svg395,
+  "500": svg500
 }
 
 const IconRenderComponent = ({ code, description }: ComponentProps) => {
   const obj = equivalence.find(el => el.code === +code);
   
   if (!obj?.icon) {
-    return <Image className={styles.image} src={SVGS[113]} alt={description} />
+    return <Image className={styles.image} src={SVGS[500]} alt={description} />
   }
   
   return <>

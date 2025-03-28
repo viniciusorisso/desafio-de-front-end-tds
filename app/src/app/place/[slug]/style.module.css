@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  align-items: center;
+  color: black;
+  flex-direction: column;
+  row-gap: 24px;
+  padding: 0px 0px 8% 0px;
+  overflow: scroll;
+  justify-content: center;
+  height: 100%;
+  background-color: var(--primary-bg);
+  fill: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.timeDayGroup {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 24px;
+  row-gap: 24px;
+  align-content: center;
+}
+
+.timeDayGroup > *:nth-child(4) {
+  grid-column: 2 / 3;
+  justify-self: center;
+}
+
+@media (min-width: 750px) {
+  .container {
+    row-gap: 32px;
+    padding: 0px 0px 8% 0px;
+    box-sizing: border-box;
+  }
+
+  .timeDayGroup {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    column-gap: 48px;
+    row-gap: 0;
+  }
+  
+  .timeDayGroup > *:nth-child(4) {
+    grid-column: unset;
+    justify-self: unset;
+  }
+}

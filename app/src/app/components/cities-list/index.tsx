@@ -1,11 +1,7 @@
-'use client'
-
+import Link from "next/link"
 import styles from "./style.module.css"
-import { useRouter } from 'next/navigation'
  
 const CitiesList = () => {
-  const router = useRouter()
-
   const arr = [
     "Dallol",
     "Fairbanks",
@@ -18,9 +14,10 @@ const CitiesList = () => {
   return (
     <>
       <div className={styles.box}>
-          {arr.map(el => <a className={styles.city} key={el} onClick={() => router.push('/place/' + el)}>
+          {arr.map(el =>
+            <Link className={styles.city} key={el} href={'/place/' + el}>
             {el}
-          </a>)}
+          </Link>)}
       </div>
     </>
   )

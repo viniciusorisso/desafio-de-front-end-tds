@@ -20,7 +20,6 @@ const CitiesList = () => {
           </Link>)}
       </div>
     </>
-  )
-}
+  )}
 
 export default CitiesList;

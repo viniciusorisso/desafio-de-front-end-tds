@@ -41,7 +41,6 @@ const GenericRowComponent = ({ first, second, third, forth }: ComponentProps) =>
         </div>
       </div>
     </>
-  )
-}
+  )}
 
 export default GenericRowComponent;

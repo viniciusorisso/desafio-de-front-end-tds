@@ -18,7 +18,6 @@ const PeriodTempComponent = ({ degree, timeDay, code }: ComponentProps) => {
         <p className={styles.degree}>{ degree }ºC</p>
       </div>
     </>
-  )
-}
+  )}
 
 export default PeriodTempComponent;

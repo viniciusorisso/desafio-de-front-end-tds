@@ -32,6 +32,15 @@
 }
 
 .icons-color {
+  fill: var(--primary-color);
+}
+
+.icons-size {
+  height: 100%;
+  width: 100%;
+}
+
+.icons-color > svg {
   height: 100%;
   width: 100%;
   fill: var(--primary-color);

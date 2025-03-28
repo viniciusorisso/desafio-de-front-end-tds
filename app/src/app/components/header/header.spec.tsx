@@ -13,17 +13,14 @@ describe('HeaderComponent', () => {
   });
 
   it('deve renderizar o ícone padrão se nenhum for passado', () => {
-    render(<HeaderComponent title="Weather" description="Select a city" />);
+    const { container } = render(<HeaderComponent title="Weather" description="Select a city" />);
 
-    const icon = screen.getByRole('img');
-    expect(icon).toBeInTheDocument();
+    expect(container.getElementsByTagName('svg').length).toBe(1);
   });
 
-  it('deve renderizar o ícone correto quando um código for passado', () => {
-    render(<HeaderComponent title="Weather" description="Select a city" icon="200" />);
+  it('deve renderizar um ícone quando um código for passado', () => {
+    const { container } = render(<HeaderComponent title="Weather" description="Select a city" icon="200" />);
 
-    const icon = screen.getByRole('img');
-    expect(icon).toBeInTheDocument();
-    expect(icon).toHaveAttribute('alt', 'Select a city');
+    expect(container.getElementsByTagName('svg').length).toBe(1);
   });
 });

@@ -32,12 +32,10 @@ describe("MainTempComponent", () => {
   });
 
   it("exibe os ícones de seta corretamente", () => {
-    render(<MainTempComponent {...props} />);
-
-    const arrowUpIcon = screen.getByAltText("arrow up icon");
-    const arrowDownIcon = screen.getByAltText("arrow up icon");
-
-    expect(arrowUpIcon).toBeInTheDocument();
-    expect(arrowDownIcon).toBeInTheDocument();
+    const { container } = render(<MainTempComponent {...props} />);
+    
+    expect(container.getElementsByClassName("icons-size").length).toBe(2)
+    expect(container.getElementsByClassName("icons-size")[0]).not.toBeNull();
+    expect(container.getElementsByClassName("icons-size")[1]).not.toBeNull();
   });
 });

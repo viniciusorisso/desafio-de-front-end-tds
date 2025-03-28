@@ -10,7 +10,6 @@ const httpAdapter = async ({ url, body, method = "GET" }: HttpAdapterParams) => 
   return await fetch(url, {
     method,
     body
-  })
-};
+  })};
 
 export default httpAdapter;

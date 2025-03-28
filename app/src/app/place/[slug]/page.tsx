@@ -6,6 +6,7 @@ import HeaderComponent from '@/app/components/header'
 import weatherHttp from '@/app/configs/decorator'
 import { WeatherApiResponse } from './type'
 import { PeriodTemp, TCurrent, formatCurrentInfo, formatGeneralInfo, formatPeriodGroup } from './methods'
+import { isGray } from '@/app/components/icon-render/equivalence'
 
 type ComponentParams = {
   params: Promise<{ slug: string }>
@@ -16,7 +17,7 @@ const FooPage = async ({ params }: ComponentParams) => {
 
   const request = weatherHttp(slug)
   
-  const theme = "blue-theme"
+  let theme = "blue-theme"
 
   let city = ""
   let timedayGroup: PeriodTemp[] = []
@@ -53,6 +54,10 @@ const FooPage = async ({ params }: ComponentParams) => {
     console.log(error);
   }
 
+  if (isGray.includes(current.code)) {
+    theme = "gray-theme"
+  }
+
   return (
     <>
       <div className={[styles.container, theme].join(" ")}>
@@ -64,7 +69,6 @@ const FooPage = async ({ params }: ComponentParams) => {
         <GenericRowComponent first={{ title: "Wind speed", value: current.windKph + " kph" }} second={{ title: "Sunrise", value: generalInfo.sunrise }} third={{ title: "Sunset", value: generalInfo.sunset }} forth={{ title: "Humidity", value: current.humidity + " %" }}/>
       </div>
     </>
-  )
-}
+  )}
 
 export default FooPage;

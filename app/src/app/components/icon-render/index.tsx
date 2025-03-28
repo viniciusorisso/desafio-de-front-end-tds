@@ -33,7 +33,7 @@ const SVGS = {
   "395": dynamic(() => import("@/app/assets/icons/395.tsx")),
   "400": dynamic(() => import("@/app/assets/icons/400.tsx")),
   "401": dynamic(() => import("@/app/assets/icons/401.tsx")),
-  "500": dynamic(() => import("@/app/assets/icons/la_globe-americas.svg")),
+  "500": dynamic(() => import("@/app/assets/icons/500.tsx")),
 }
 
 const IconRenderComponent = ({ code }: ComponentProps) => {
@@ -42,14 +42,17 @@ const IconRenderComponent = ({ code }: ComponentProps) => {
   if (!obj?.icon) {
     const GeneralComponent = SVGS["500"]
 
-    return <><GeneralComponent className={styles.image} /></>
+    return <div className={styles.image} >
+      <GeneralComponent />
+      </div>
   }
   
-  const GeneralComponent = SVGS[obj!.icon + ""]]
+  // @ts-expect-error typo issues
+  const GeneralComponent = SVGS[obj.icon]
 
-  return <>
-    <GeneralComponent className={styles.image} />
-  </>
+  return <div className={styles.image} >
+      <GeneralComponent />
+    </div>
 }
 
 export default IconRenderComponent;
